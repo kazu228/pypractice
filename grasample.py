@@ -6,7 +6,7 @@ ball = {
     "y": 200,
     "z": 10,
     "dirx": 15,
-    "diry": 15
+    "diry": 30
 }
 
 win = Tk()
@@ -26,6 +26,12 @@ def draw_line():
     x2 = 600
     y = 210
     cv.create_line(x1, y, x2, y)
+
+    if ball["y"] >= y:
+        ball["y"] = y
+
+    if ball["y"] < y:
+        ball["y"] += 2
 
 
 def move_ball(e):
