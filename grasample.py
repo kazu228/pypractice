@@ -6,8 +6,13 @@ ball = {
     "y": 200,
     "z": 10,
     "dirx": 15,
-    "diry": 30
+    "diry": 50
 }
+
+# lineの座標
+x1 = 0
+x2 = 600
+y = 210
 
 win = Tk()
 
@@ -22,9 +27,6 @@ def draw_ball():
 
 
 def draw_line():
-    x1 = 0
-    x2 = 600
-    y = 210
     cv.create_line(x1, y, x2, y)
 
     if ball["y"] >= y:
@@ -43,7 +45,8 @@ def move_ball(e):
         ball["x"] -= ball["dirx"]
 
     if e.keysym == "Up":
-        ball["y"] -= ball["diry"]
+        if ball["y"] == y:
+            ball["y"] -= ball["diry"]
 
 def main():
     draw_ball()
