@@ -8,6 +8,7 @@ cv.pack()
 blocks = []
 block_size = {"x": 75, "y": 30}
 ball = {"dirx": 15, "diry": -15, "x": 350, "y": 300, "w": 10}
+bar = {"x": 0, "w": 100 }
 is_gameover = False
 point = 0
 
@@ -34,6 +35,25 @@ def init_game():
             blocks.append([x1, y1, x2, y2, color])
 
     win.title('START')            
+
+def draw_objects():
+
+    cv.delete('all')
+    cv.create_rectangle(0, 0, 600, 400, fill="black", width=0)
+
+    for w in blocks:
+        x1, y1, x2, y2, c = w
+
+        cv.create_rectangle(x1, y1, x2, y2, fill=c, width=0)
+
+        cv.create_oval(ball["x"] - ball["w"], ball["y"] - ball["w"],
+                ball["x"] + ball["w"], ball["y"] + ball["w"], fill="green")
+
+        cv.create_rectangle(bar["x"], 390, bar["x"] + bar["w"], 400,
+                    fill="yellow")
+
+
+
 
 
 init_game()
