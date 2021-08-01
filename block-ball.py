@@ -52,8 +52,28 @@ def draw_objects():
         cv.create_rectangle(bar["x"], 390, bar["x"] + bar["w"], 400,
                     fill="yellow")
 
+def move_ball():
+    global is_gameover, point
 
+    if is_gameover: return
+
+    bx = ball["x"] + ball["dirx"]
+    by = ball["y"] + ball["diry"]
+
+    if bx < 0 or bx > 600: ball["dirx"] *= -1
+    if by < 0: ball["diry"] += -1
+
+    if by > 390 and (bar["x"] <= bx <= (bar["x"] + bar["w"])):
+        ball["diry"] *= -1
+        if random.randint(0, 1) == 0: ball["dirx"] *= -1
+        by = 380
+
+    
 
 
 
 init_game()
+draw_objects()
+
+
+win.mainloop()
