@@ -46,11 +46,11 @@ def draw_objects():
 
         cv.create_rectangle(x1, y1, x2, y2, fill=c, width=0)
 
-        cv.create_oval(ball["x"] - ball["w"], ball["y"] - ball["w"],
-                ball["x"] + ball["w"], ball["y"] + ball["w"], fill="green")
+    cv.create_oval(ball["x"] - ball["w"], ball["y"] - ball["w"],
+            ball["x"] + ball["w"], ball["y"] + ball["w"], fill="green")
 
-        cv.create_rectangle(bar["x"], 390, bar["x"] + bar["w"], 400,
-                    fill="yellow")
+    cv.create_rectangle(bar["x"], 390, bar["x"] + bar["w"], 400,
+                fill="yellow")
 
 def move_ball():
     global is_gameover, point
